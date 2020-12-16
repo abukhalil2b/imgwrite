@@ -15,19 +15,29 @@ if($name==''||$state==''){
 }
 $txt = $Arabic->utf8Glyphs($name . "\n" . $state."          ");
 
-
 imagettftext($img, 24, 0, 600, 1000, $black, $font, $txt);
-
+$nameFile = time().'.jpg';
 // (C) OUTPUT IMAGE
-header('Content-type: image/jpeg');
+
+// header('Content-type: image/jpeg');
+
+
 // imagejpeg($img);
-imagejpeg($img);
+imagejpeg($img, $nameFile);
 imagedestroy($img);
-
-// OR SAVE TO A FILE
-// THE LAST PARAMETER IS THE QUALITY FROM 0 to 100
-// imagejpeg($img, "test.jpg", 100);
-
+// header('Content-Disposition: attachment; filename='.$nameFile); 
+echo '
+<html style="height: 100%">
+    <head>
+        <meta name="viewport" content="width=device-width, minimum-scale=0.1" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="font-size:22px;margin: 0px; background: #0e0e0e; height: 100%">
+        <img style="-webkit-user-select: none; margin: auto;width: 100%" src="'. $nameFile .'" />
+        <a download="'. $nameFile .'" href="'. $nameFile .'">نزل النسخة</a>
+    </body>
+</html>
+';
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 include 'connection.php';
@@ -40,10 +50,11 @@ $link->set_charset("utf8");
 // Attempt insert query execution
 $sql = "INSERT INTO persons (name, state) VALUES ('$name', '$state')";
 if(mysqli_query($link, $sql)){
-    echo "Records inserted successfully.";
+    echo "";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
  
 // Close connection
 mysqli_close($link);
+

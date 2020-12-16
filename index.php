@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <img class="img" src="bg.jpg" alt="">
-        <form action="/imgwitre/show.php" method="POST">
-            <input type="text" name="name" >
-            <input type="text" name="state" >
-            <button class="btn">أتعهد</button>
+        <form action="show.php" method="POST">
+            <input type="text" name="name" placeholder="الإسم" >
+            <input type="text" name="state" placeholder="الولاية - القرية" >
+            <button class="btn">اضغط للحصول على نسخة من الميثاق</button>
         </form>
         <div class="counter">
             <?php 
