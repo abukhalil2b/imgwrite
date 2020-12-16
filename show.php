@@ -40,21 +40,21 @@ echo '
 ';
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-// include 'connection.php';
+include 'connection.php';
 
-// // Check connection
-// if($link === false){
-//     die("ERROR: Could not connect. " . mysqli_connect_error());
-// }
-// $link->set_charset("utf8");
-// // Attempt insert query execution
-// $sql = "INSERT INTO persons (name, state) VALUES ('$name', '$state')";
-// if(mysqli_query($link, $sql)){
-//     echo "";
-// } else{
-//     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-// }
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+$link->set_charset("utf8");
+// Attempt insert query execution
+$sql = "INSERT INTO persons (name, state) VALUES ('$name', '$state')";
+if(mysqli_query($link, $sql)){
+    echo "";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
  
-// // Close connection
-// mysqli_close($link);
+// Close connection
+mysqli_close($link);
 
