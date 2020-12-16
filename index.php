@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <img class="img" src="bg.jpg" alt="">
-        <form action="<?php echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>show.php" method="POST">
+        <form action="<?php echo "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>html/show.php" method="POST">
             <input type="text" name="name" placeholder="الإسم" >
             <input type="text" name="state" placeholder="الولاية - القرية" >
             <button class="btn">اضغط للحصول على نسخة من الميثاق</button>
